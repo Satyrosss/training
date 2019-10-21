@@ -49,19 +49,19 @@ def test_sort_by_state(request_breweries, state):
     assert response.status_code == 200
 
 
-@pytest.mark.parametrize('id', ['44', '46', '55'])
-def test_sort_by_id(request_breweries, id):
-    response = request_breweries.get(path='/' + id)
+@pytest.mark.parametrize('breweries', ['44', '46', '55'])
+def test_sort_by_id(request_breweries, breweries):
+    response = request_breweries.get(path='/' + breweries)
     assert response.status_code == 200
 
 
 def test_get_all(request_jsonplaceholder):
-    response = request_jsonplaceholder.get(path='post')
+    response = request_jsonplaceholder.get(path='posts')
     assert response.status_code == 200
 
 
 def test_get_for_id(request_jsonplaceholder):
-    response = request_jsonplaceholder.get(path='post/22')
+    response = request_jsonplaceholder.get(path='posts/22')
     assert response.status_code == 200
 
 
